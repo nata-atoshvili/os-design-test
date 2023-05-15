@@ -21,7 +21,7 @@ const PageDownload: React.FC<Props> = ({ slides }) => {
         slidesPerView={3.7}
         breakpoints={{
           0: {
-            slidesPerView: 1.5,
+            slidesPerView: 1.75,
           },
           768: {
             slidesPerView: 2.7,
@@ -36,8 +36,10 @@ const PageDownload: React.FC<Props> = ({ slides }) => {
         {slides.map((slide, index) => (
           <SwiperSlide key={`slide-${index}`}>
             <Slide className="swiper-slide-inner">
-              <SlideTitle>{slide.title}</SlideTitle>
-              {slide.text}
+              <div className="swiper-slide-text">
+                <SlideTitle>{slide.title}</SlideTitle>
+                {slide.text}
+              </div>
             </Slide>
           </SwiperSlide>
         ))}
@@ -53,9 +55,11 @@ const Root = styled.div``;
 const Slide = styled.div`
   position: relative;
   height: 330px;
+  width: 330px;
 
   ${({ theme }) => theme.mediaQuery.tablet`
     height: 300px;
+    width: 100%;
   `}
 
   ${({ theme }) => theme.mediaQuery.desktop`

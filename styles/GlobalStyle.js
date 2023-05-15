@@ -128,6 +128,16 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .swiper-slide {
+    &:nth-child(odd) {
+      .swiper-slide-inner {
+        padding-bottom: 180px;
+      }
+
+      .swiper-slide-text {
+        overflow: hidden;
+        max-height: 100%;
+      }
+    }
     &:nth-child(even) {
       .swiper-slide-inner {
         padding-top: 188px;
